@@ -17,7 +17,7 @@ CUANDO ALGUIEN CORRA:
 	chatServer.listen(server);
 SE ESTARA LLAMANDO AL METODO exports.listen DEFINIDO A CONTINUACION
 */
-exports.listen(function(server) {
+exports.listen = function(server) {
 	/*Start Socket.IO server,allowing it to piggyback on existing HTTP server*/
 	io = socketio.listen(server);
 
@@ -42,7 +42,7 @@ exports.listen(function(server) {
 
 		handleClientDisconnection(socket, nickNames, namesUsed);
 	});
-});
+};
 
 
 /*The chat application needs to handle the following types of scenarios and events:
@@ -62,7 +62,7 @@ function assignGuestName(socket, guestNumber, nickNames, namesUsed) {
 	nickNames[socket.id] = name;
 
 	/*Let user know their guest name*/
-	socket.emit('nameResult' {
+	socket.emit('nameResult', {
 		success: true,
 		name: name
 	});
@@ -122,7 +122,7 @@ function handleNameChangeAttempts(socket, nickNames, namesUsed) {
 			/*The delete operator removes a property from an object. If the delete operator succeeds, it removes the property from the object entirely. */
 			delete namesUsed[previousNameIndex];
 
-			socket.emmit('nameResult', {
+			socket.emit('nameResult', {
 				success: true,
 				name: name
 			});
@@ -149,7 +149,7 @@ function handleMessageBroadcasting(socket) {
 	socket.on('message', function(message) {
 		/*message event sent by server with JSON data TO ALL BROWSERS!*/
 		socket.broadcast.to(message.room).emit('message', {
-			text: nickNames[socket.id] + ': ' + message.text;
+			text: nickNames[socket.id] + ': ' + message.text
 		});
 	});
 }
