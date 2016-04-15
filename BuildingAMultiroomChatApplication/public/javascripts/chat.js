@@ -12,7 +12,7 @@ Chat.prototype.sendMessage = function(room, text) {
 };
 
 Chat.prototype.changeRoom = function(newRoom) {
-	console.log('Changing room to '+newRoom);
+	console.log('Changing room to ' + newRoom);
 	this.socket.emit('join', {
 		newRoom: newRoom
 	});
