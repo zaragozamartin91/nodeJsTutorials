@@ -1,0 +1,9 @@
+{
+	"name": "nhozJs",
+	"version": "0.0.1",
+	"description": "Nhoz software NodeJs edition",
+	"dependencies": {
+		"node-dbf": "~0.1.0",
+		"xlsx": "~0.8.0"
+	}
+}
