@@ -5,5 +5,5 @@ like you did here. Next, you required your index controller and used its render(
 method as a middleware to GET requests made to the root path.*/
 module.exports = function(app) {
     var index = require('../controllers/index.server.controller');
-    app.get('/',index.render);
+    app.get('/', index.render);
 };

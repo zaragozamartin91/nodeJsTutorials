@@ -1,6 +1,8 @@
 /*DEFINE EL CONTROLADOR PARA index*/
 //------------------------------------------------------------
 
+/*UNA ASIGNACION exports.render EXPONE LA FUNCION render EN EL OBJETO DEL MODULO:
+require('./module').render()*/
 exports.render = function(req, res) {
     /*The controller checks whether the lastVisit property was set in the session object, and if so,
     outputs the last visit date to the console. It then sets the lastVisit property to
