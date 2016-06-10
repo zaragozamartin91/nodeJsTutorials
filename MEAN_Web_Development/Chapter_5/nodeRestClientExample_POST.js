@@ -6,12 +6,13 @@ var client = new Client();
 // set content-type header and data as json in args parameter 
 var args = {
     data: {
-        firstName: "First",
-        lastName: "Last",
-        email: "user@example.com",
-        username: "username",
-        password: "password",
-        website: "zaragozamartin.com.ar"
+        firstName: "Mateo",
+        lastName: "Zaragoza",
+        email: "mateo@zaragoza.com",
+        username: "mateoz",
+        password: "123456",
+        website: "zaragozamartin.com.ar",
+        role: 'Admin'
     },
     headers: {
         "Content-Type": "application/json"

@@ -25,4 +25,7 @@ module.exports = function(app) {
     which in this case is the users.read() middleware*/
     app.param('userId', users.userByID);
     /*CADA REQUEST QUE NECESITE EL PARAMETRO userId (COMO LOS GET PUT Y DELETE DE ARRIBA, SE DEBE CORRER EL middleware userByID.*/
+
+    app.get('/users/username/:username', users.read);
+    app.param('username', users.userByUsername);
 };

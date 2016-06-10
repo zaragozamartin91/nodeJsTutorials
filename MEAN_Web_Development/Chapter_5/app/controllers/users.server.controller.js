@@ -86,3 +86,16 @@ exports.delete = function(req, res, next) {
         res.json(req.user);
     });
 }
+
+
+exports.userByUsername = function(req, res, next, username) {
+    /*findOneByUsername es una funcion ESTATICA de UserSchema definida en users.server.controller*/
+    User.findOneByUsername(username, function(err, user) {
+        if (err) {
+            return next(err);
+        }
+
+        req.user = user;
+        next();
+    });
+};
