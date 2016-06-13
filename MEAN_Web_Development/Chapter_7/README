@@ -1,0 +1,9 @@
+PARA PROBAR HACER UN POST REQUEST A /users, USAR EL SCRIPT nodeRestClientExample
+
+LA EJECUCION:
+curl -X POST -H "Content-Type: application/json" -d '{"firstName":"First", "lastName":"Last","email":"user@example.com","username":"username","password":"password"}' localhost:3000/users
+
+QUE SUGIERE EL LIBRO NO ANDA BIEN!
+------------------------------------------------------------------------------------------------------------------------
+.bowerrc CONFIGURA ASPECTOS DE bower. EN ESTE CASO, CAMBIA EL DIRECTORIO DE LOS ARCHIVOS DESCARGADOS DE 
+bower_components/ A public/lib/
