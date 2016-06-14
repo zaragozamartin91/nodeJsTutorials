@@ -4,3 +4,6 @@ MEAN_Web_Development/Chapter_3/node_modules/*
 MEAN_Web_Development/Chapter_5/node_modules/*
 MEAN_Web_Development/Chapter_6/node_modules/*
 MEAN_Web_Development/Chapter_7/node_modules/*
+ExpressJs/Express_application_generator/withEjs/myapp/node_modules/*
+ExpressJs/Express_application_generator/withJade/myapp/node_modules/*
+Angular/myapp/node_modules/*

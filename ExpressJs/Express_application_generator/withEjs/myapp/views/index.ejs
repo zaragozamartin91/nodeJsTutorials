@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <input data-ng-model="name">Hello {{name}}</input>
+
+    <hello>Element</hello> Element
+    <div data-hello>Attribute</div> data-Attribute
+    <div hello>Attribute</div> Attribute
+    
+
+    <script type="text/javascript" src="javascripts/angular/angular.min.js"></script>
+
+    <script type="text/javascript">
+        var app=angular.module('app',[]);
+
+        app.directive('hello',[function(){
+            return {
+                restrict:"CEMA",
+                replace:true,
+                template:'<span><br>Hello</span>'
+            };
+        }]);
+    </script>
+  </body>
+</html>
