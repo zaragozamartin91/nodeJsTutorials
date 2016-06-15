@@ -12,12 +12,9 @@ exports.render = function(req, res) {
     }
     req.session.lastVisit = new Date();
 
-    /*The first argument is the name of your EJS template without the .ejs extension, and the second argument is an
-    object containing your template variables. The res.render() method will use the EJS template engine to look for 
-    the file in the views folder that we set in the config/express.js file and will then render the view using the template variables*/
+    /*This will render the user object as a JSON representation right in your main view application.*/
     res.render('index', {
         title: 'Hello World',
-        userFullName: req.user ? req.user.fullName : ''
+        user: JSON.stringify(req.user)
     });
-    /*ANTERIOR CODIGO BUSCA app/views/index.ejs Y LE SETEA LA VARIABLE title='Hello World' */
 };

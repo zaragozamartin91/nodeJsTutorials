@@ -8,18 +8,18 @@ var passport = require('passport');
 module.exports = function(app) {
     /*al realizar un HTTP POST a /users se invoca al metodo 'create' del controlador para agregar un usuario nuevo.*/
     /*al realizar un HTTP GET a /users se invoca al metodo 'list' del controlador para agregar un usuario nuevo.*/
-    app.route('/users')
+    app.route('/api/users')
         .post(users.create)
         .get(users.list);
 
     /*In Express, adding a colon before a substring in a route definition means
     that this substring will be handled as a request parameter.*/
-    app.get('/users/:userId', users.read);
+    app.get('/api/users/:userId', users.read);
 
     /*para este PUT es necesario pasar el userId en la URL y los datos del usuario a modificar en el body.*/
-    app.put('/users/:userId', users.update);
+    app.put('/api/users/:userId', users.update);
 
-    app.delete('/users/:userId', users.delete);
+    app.delete('/api/users/:userId', users.delete);
 
     /*the app.param() method that defines a middleware to be executed before any other middleware that uses that parameter. 
     Here, the users.userById() method will be executed before any other middleware registered with the userId parameter, 
@@ -27,7 +27,7 @@ module.exports = function(app) {
     app.param('userId', users.userByID);
     /*CADA REQUEST QUE NECESITE EL PARAMETRO userId (COMO LOS GET PUT Y DELETE DE ARRIBA, SE DEBE CORRER EL middleware userByID.*/
 
-    app.get('/users/username/:username', users.read);
+    app.get('/api/users/username/:username', users.read);
     app.param('username', users.userByUsername);
 
 
@@ -36,7 +36,7 @@ module.exports = function(app) {
         .post(users.signup);
 
     /*When the passport.authenticate() method is executed, it will try to authenticate
-the user request using the strategy defined by its first argument*/
+    the user request using the strategy defined by its first argument*/
     app.route('/signin')
         .get(users.renderSignin)
         .post(passport.authenticate('local', {
